@@ -82,12 +82,12 @@ const run = async (user, index) => {
           user.info.id
         } _ Time: ${dayjs().format(
           "YYYY-MM-DDTHH:mm:ssZ[Z]"
-        )}] Lỗi đăng nhập thất bại quá ${MAX_RETRY_LOGIN} lần`;
+        )}] kesalahan login gagal ${MAX_RETRY_LOGIN} lần`;
         fileHelper.writeLog("log.error.txt", dataLog);
         break;
       }
     } catch (error) {
-      user.log.logError("Ghi lỗi thất bại");
+      user.log.logError("Gagal mencatat kesalahan");
     }
 
     // Đăng nhập tài khoản
@@ -105,7 +105,7 @@ const run = async (user, index) => {
     if (user.database?.skipHandleTask) {
       user.log.log(
         colors.yellow(
-          `Tạm bỏ qua làm nhiệm vụ do lỗi server (sẽ tự động mở lại khi server ổn định)`
+          `Melewatkan misi untuk sementara karena kesalahan server (akan otomatis dibuka kembali ketika server stabil)`
         )
       );
     } else {
@@ -139,11 +139,11 @@ const run = async (user, index) => {
 
 console.log(
   colors.yellow.bold(
-    `=============  Tool phát triển và chia sẻ miễn phí bởi ZuyDD  =============`
+    `=============  tools dibagikan secara gratis oleh zuydd =============`
   )
 );
 console.log(
-  "Mọi hành vi buôn bán tool dưới bất cứ hình thức nào đều không được cho phép!"
+  "Penjualan alat dalam bentuk apapun tidak diperkenankan!"
 );
 console.log(
   `Telegram: ${colors.green(
@@ -151,7 +151,7 @@ console.log(
   )}  ___  Facebook: ${colors.blue("https://www.facebook.com/zuy.dd")}`
 );
 console.log(
-  `🚀 Cập nhật các tool mới nhất tại: 👉 ${colors.gray(
+  `🚀 Perbarui alat terbaru di: 👉 ${colors.gray(
     "https://github.com/zuydd"
   )} 👈`
 );
@@ -200,7 +200,7 @@ if (IS_SHOW_COUNTDOWN && users.length) {
         colors.white(
           `[${dayjs().format(
             "DD-MM-YYYY HH:mm:ss"
-          )}] Đã chạy hết các luồng, cần chờ: ${colors.blue(
+          )}] Semua thread sudah berjalan, perlu menunggu: ${colors.blue(
             datetimeHelper.formatTime(countdown)
           )}     \r`
         )
