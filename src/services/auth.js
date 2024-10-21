@@ -29,7 +29,7 @@ class AuthService {
     } catch (error) {
       if (!skipLog) {
         user.log.logError(
-          `Đăng nhập thất bại: ${error.response?.data?.message}`
+          `Gagal masuk: ${error.response?.data?.message}`
         );
       }
       return null;
@@ -54,7 +54,7 @@ class AuthService {
     } catch (error) {
       if (!skipLog) {
         user.log.logError(
-          `Refresh token thất bại: ${error.response?.data?.message}`
+          `gagal memperbarui token: ${error.response?.data?.message}`
         );
       }
       return null;
@@ -63,7 +63,7 @@ class AuthService {
 
   async handleLogin(user) {
     console.log(
-      `============== Chạy tài khoản ${user.index} | ${user.info.fullName.green} ==============`
+      `============== Jalankan akun ${user.index} | ${user.info.fullName.green} ==============`
     );
 
     let info = null;
@@ -103,7 +103,7 @@ class AuthService {
       };
     }
     user.log.logError(
-      "Quá trình đăng nhập thất bại, vui lòng kiểm tra lại thông tin tài khoản (có thể cần phải lấy mới query_id). Hệ thống sẽ thử đăng nhập lại sau 60s"
+      "Proses login gagal, silakan periksa kembali informasi akun Anda (mungkin perlu mendapatkan yang baru query_id). Sistem akan mencoba login lagi nanti 60s"
     );
     return {
       status: 0,
@@ -120,7 +120,7 @@ class AuthService {
       return null;
     } catch (error) {
       user.log.logError(
-        `Lấy thông tin tài khoản thất bại: ${error.response?.data?.message}`
+        `Gagal mengambil informasi akun: ${error.response?.data?.message}`
       );
       return null;
     }
@@ -163,8 +163,8 @@ class AuthService {
     const profile = await this.getProfile(user);
     if (profile) {
       user.log.log(
-        colors.green("Đăng nhập thành công: ") +
-          `Số điểm: ${
+        colors.green("Berhasil masuk: ") +
+          `Skor: ${
             colors.green(Math.round(profile?.availableBalance)) + user.currency
           }`
       );
