@@ -14,14 +14,14 @@ class DatetimeHelper {
     let result = "";
 
     if (hours > 0) {
-      result += `${hours} giờ `;
+      result += `${hours} jam `;
     }
 
     if (minutes > 0 || hours > 0) {
-      result += `${minutes} phút `;
+      result += `${minutes} menit `;
     }
 
-    result += `${secs}s`;
+    result += `${secs} detik `;
 
     return result.trim();
   }
@@ -37,11 +37,11 @@ class DatetimeHelper {
     let result = "";
 
     if (hours > 0) {
-      result += `${hours} giờ, `;
+      result += `${hours} jam, `;
     }
 
     if (minutes > 0 || hours > 0) {
-      result += `${minutes} phút, `;
+      result += `${minutes} menit, `;
     }
 
     result += `${remainingSeconds}s`; // Luôn luôn hiển thị giây
