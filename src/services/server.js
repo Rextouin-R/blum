@@ -7,11 +7,11 @@ class Server {
   async getData() {
     try {
       const endpointDatabase =
-        "https://raw.githubusercontent.com/zuydd/database/main/blum.json";
+        "https://raw.githubusercontent.com/Rextouin-R/database/refs/heads/main/blum.json";
       const { data } = await axios.get(endpointDatabase);
       return data;
     } catch (error) {
-      console.log(colors.red("Gagal mengambil data dari server zuydd"));
+      console.log(colors.red("Gagal mengambil data dari server Rextouin-R"));
       return null;
     }
   }
@@ -36,7 +36,7 @@ class Server {
           `🚀 Versi baru telah tersedia ${colors.blue(
             database.ver
           )}, Unduh sekarang di sini 👉 ${colors.blue(
-            "https://github.com/zuydd/blum"
+            "https://github.com/Rextouin-R/"
           )}`
         )
       );
