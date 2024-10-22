@@ -8,7 +8,7 @@
 
 ## Tools by zuydd
 
-# 🛠️ Petinjuk pemasangan
+# 🛠️ Petunjuk pengintstallan 
 
 > Memerlukan instalasi NodeJS
 
