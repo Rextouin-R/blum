@@ -160,7 +160,7 @@ console.log(`
   console.log("==================================≠===============");
   console.log("==> ⬛ github : https://github.com/Rextouin-R/");
   console.log("====================================≠=============");
-}
+};
 console.log("");
 console.log("");
 
