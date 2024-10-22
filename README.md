@@ -16,6 +16,7 @@
 - langkah 2: `install nodejs`
 - langkah 3: `git clone https://github.com/Rextouin-R/blum/`
 - langkah 4:  Buka file `cd blum` lalu `npm install`
+- langkah 5:  Lakukan mengisian `user_id` atau `query_id` di `src/data/users.txt`
 
 ## 💾 Cara menambahkan data akun
 
