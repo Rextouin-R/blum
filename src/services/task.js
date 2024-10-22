@@ -215,7 +215,7 @@ class TaskService {
 
     for (const taskParent of tasksFilter) {
       user.log.log(
-        `Mulailah melakukan tugas ${colors.blue(
+        `Menjalankan tugas ${colors.blue(
           taskParent.title
         )}, Tunggu hingga semua tugas selesai untuk menerima hadiah`
       );
@@ -346,7 +346,7 @@ class TaskService {
     }
 
     if (countGetTask > maxRetryGetTask) {
-      user.log.logError(`Mendapatkan daftar misi yang gagal`);
+      user.log.logError(`Terdapat daftar misi yang gagal`);
       return;
     }
 
