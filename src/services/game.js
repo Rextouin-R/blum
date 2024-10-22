@@ -18,7 +18,7 @@ class GameService {
 
       if (data) {
         user.log.log(
-          `Mulai mainkan permainan, tunggu sampai selesai untuk claim: ${colors.blue(
+          `Mulai bermain, tunggu untuk claim: ${colors.blue(
             delay + "s"
           )}`
         );
@@ -54,7 +54,7 @@ class GameService {
       const { data } = await user.http.post(5, "game/claim", body);
       if (data) {
         user.log.log(
-          `Seterlah memainkan permainan, mendapatkan hadiah: ${colors.green(
+         `Permainan selesai, Pendapatan: ${colors.green(
             points + user.currency
           )}${eligibleDogs ? ` - ${dogs} 🦴` : ""}`
         );
