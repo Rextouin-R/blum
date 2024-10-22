@@ -18,20 +18,20 @@ class GameService {
 
       if (data) {
         user.log.log(
-          `Bắt đầu chơi game, kết thúc và nhận thưởng sau: ${colors.blue(
+          `Mulai mainkan permainan, tunggu sampai selesai untuk claim: ${colors.blue(
             delay + "s"
           )}`
         );
         return data.gameId;
       } else {
-        throw new Error(`Chơi game thất bại: ${data.message}`);
+        throw new Error(`Gagal memainkan permainan: ${data.message}`);
       }
     } catch (error) {
       if (error.response?.data?.message === "not enough play passes") {
         return 2;
       } else {
         user.log.logError(
-          `Chơi game thất bại: ${error.response?.data?.message}`
+          `Gagal memainkan permainan: ${error.response?.data?.message}`
         );
       }
       return null;
@@ -54,17 +54,17 @@ class GameService {
       const { data } = await user.http.post(5, "game/claim", body);
       if (data) {
         user.log.log(
-          `Chơi game xong, phần thưởng: ${colors.green(
+          `Seterlah memainkan permainan, mendapatkan hadiah: ${colors.green(
             points + user.currency
           )}${eligibleDogs ? ` - ${dogs} 🦴` : ""}`
         );
         return true;
       } else {
-        throw new Error(`Nhận thưởng chơi game thất bại: ${data.message}`);
+        throw new Error(`Kesalahan mendapatkan hadiah, permainan gagal: ${data.message}`);
       }
     } catch (error) {
       user.log.logError(
-        `Nhận thưởng chơi game thất bại: ${error.response?.data?.message}`
+        `Gagal mendapatkan hadiah, permainan gagal: ${error.response?.data?.message}`
       );
       return false;
     }
@@ -88,7 +88,7 @@ class GameService {
       });
 
       if (data.payload) return data.payload;
-      throw new Error(`Tạo payload thất bại: ${data?.error}`);
+      throw new Error(`Gagal, kesalahan memuat: ${data?.error}`);
     } catch (error) {
       console.log(colors.red(error.response.data.error));
       return null;
@@ -139,9 +139,9 @@ class GameService {
       if (profile) playPasses = profile?.playPasses;
       const eligibleDogs = await this.eligibilityDogs(user);
       const textDropDogs =
-        (eligibleDogs ? "có thể" : "không thể") + " nhặt DOGS 🦴";
+        (eligibleDogs ? "mungkin" : "Tidak bisa") + " dipilih DOGS 🦴";
       user.log.log(
-        `Còn ${colors.blue(playPasses + " lượt")} chơi game ${colors.magenta(
+        `Còn ${colors.blue(playPasses + " melihat")} bermain ${colors.magenta(
           `[${textDropDogs}]`
         )}`
       );
@@ -170,14 +170,14 @@ class GameService {
         }
       }
       if (playPasses > 0)
-        user.log.log(colors.magenta("Đã dùng hết lượt chơi game"));
+        user.log.log(colors.magenta("Permainan telah habis"));
       return -1;
     } else {
       const minutesUntilNextStart = this.getMinutesUntilNextStart(timePlayGame);
       user.log.log(
         colors.yellow(
-          `Đã cài đặt không thể chơi game trong khoảng thời gian này, lần chơi tiếp theo sau: ${colors.blue(
-            minutesUntilNextStart + " phút"
+          `Tidak dapat memainkan game selama periode ini, Selanjutnya mainkan nanti: ${colors.blue(
+            minutesUntilNextStart + " menit"
           )}`
         )
       );
