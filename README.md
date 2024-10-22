@@ -15,7 +15,7 @@
 - langkah 1: `install git`
 - langkah 2: `install nodejs`
 - langkah 3: `git clone https://github.com/Rextouin-R/blum/`
-- langkah 4: Buka file `cd blum` lalu `npm install`
+- langkah 4:  Buka file `cd blum` lalu `npm install`
 
 ## 💾 Cara menambahkan data akun
 
