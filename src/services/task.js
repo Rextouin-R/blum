@@ -42,14 +42,14 @@ class TaskService {
           : "READY_FOR_CLAIM";
       } else {
         throw new Error(
-          `Mengerjakan tugasnya ${colors.blue(taskName)} Kegagalan: ${data?.message}`
+          `Menjalankan tugas ${colors.blue(taskName)} kesalahan: ${data?.message}`
         );
       }
     } catch (error) {
       user.log.logError(
-        `Mengerjakan tugasnya ${colors.blue(taskName)} - ${colors.gray(
+        `Mengerjakan tugas ${colors.blue(taskName)} - ${colors.gray(
           `[${task.id}]`
-        )} Kegagalan: ${error.response?.data?.message}`
+        )} Kesalahan: ${error.response?.data?.message}`
       );
       return "NOT_STARTED";
     }
@@ -62,7 +62,7 @@ class TaskService {
         colors.yellow(
           `Tugas selesai ${colors.blue(
             taskName
-          )} Belum ada tugas, silakan coba lagi nanti`
+          )} Belum ada tugas, menunggu tugas`
         )
       );
       return;
@@ -71,7 +71,7 @@ class TaskService {
     if (!taskDatabase) {
       user.log.log(
         colors.yellow(
-          `Nhiệm vụ ${colors.blue(
+          `Tugas selesai ${colors.blue(
             taskName
           )} Belum ada tugas, menunggu tugas`
         )
@@ -86,16 +86,16 @@ class TaskService {
         return "READY_FOR_CLAIM";
       } else {
         throw new Error(
-          `Konfirmasikan tugas ${colors.blue(taskName)} kegagalan: ${
+          `Konfirmasi tugas ${colors.blue(taskName)} kesalahan : ${
             data?.message
           }`
         );
       }
     } catch (error) {
       user.log.logError(
-        `Konfirmasikan tugas ${colors.blue(taskName)} - ${colors.gray(
+        `Konfirmasi tugas ${colors.blue(taskName)} - ${colors.gray(
           `[${task.id}]`
-        )} Kegagalan: ${error.response?.data?.message}`
+        )} Kesalahan : ${error.response?.data?.message}`
       );
       return "NOT_STARTED";
     }
@@ -112,7 +112,7 @@ class TaskService {
       if (data && data.status === "FINISHED") {
         if (showLog) {
           user.log.log(
-            `Mengerjakan tugasnya ${colors.blue(
+            `Tugas berjalan ${colors.blue(
               taskName
             )} Tugas selesai, hadiah: ${colors.green(
               task.reward + user.currency
@@ -122,7 +122,7 @@ class TaskService {
         return true;
       } else {
         throw new Error(
-          `Klaim hadiah tugas ${colors.blue(taskName)} Kegagalan: ${
+          `Klaim hadiah tugas ${colors.blue(taskName)} kesalahan : ${
             data?.message
           }`
         );
@@ -132,7 +132,7 @@ class TaskService {
         user.log.logError(
           `Klaim hadiah tugas ${colors.blue(taskName)} - ${colors.gray(
             `[${task.id}]`
-          )} Kegagalan: ${error.response?.data?.message}`
+          )} kesalahan : ${error.response?.data?.message}`
         );
       }
       return false;
@@ -161,7 +161,7 @@ class TaskService {
 
     if (taskList.length) {
       user.log.log(
-        `Tetap ${colors.blue(taskList.length)} tugas selesai ${colors.blue(
+        `Terlihat ${colors.blue(taskList.length)} tugas berjalan ${colors.blue(
           title
         )} belum selesai`
       );
@@ -170,7 +170,7 @@ class TaskService {
         colors.magenta(
           `Menyelesaikan semua tugas ${colors.blue(
             title
-          )} (Kecuali untuk tugas-tugas yang harus dilakukan secara manual, tugas-tugas tersebut diabaikan)`
+          )} (Kecuali untuk tugas yang harus dilakukan secara manual, tugas tersebut diabaikan)`
         )
       );
     }
@@ -199,7 +199,7 @@ class TaskService {
 
     if (tasksFilter.length) {
       user.log.log(
-        `Tetap ${colors.blue(tasksFilter.length)} tugas selesai ${colors.blue(
+        `Terlihat ${colors.blue(tasksFilter.length)} tugas berjalan ${colors.blue(
           title
         )} belum selesai`
       );
@@ -208,7 +208,7 @@ class TaskService {
         colors.magenta(
           `Menyelesaikan semua tugas ${colors.blue(
             title
-          )} (Kecuali untuk tugas-tugas yang harus dilakukan secara manual, tugas-tugas tersebut diabaikan)`
+          )} (Kecuali untuk tugas yang harus dilakukan secara manual, tugas tersebut diabaikan)`
         )
       );
     }
@@ -217,7 +217,7 @@ class TaskService {
       user.log.log(
         `Mulailah melakukan tugas ${colors.blue(
           taskParent.title
-        )}, Tunggu hingga semua subtugas diselesaikan untuk menerima hadiah`
+        )}, Tunggu hingga semua tugas selesai untuk menerima hadiah`
       );
 
       if (!taskParent?.subTasks) {
@@ -234,7 +234,7 @@ class TaskService {
             colors.magenta(
               `Menyelesaikan semua tugas ${colors.blue(
                 taskParent.title
-              )} (Kecuali untuk tugas-tugas yang harus dilakukan secara manual, tugas-tugas tersebut diabaikan)`
+              )} (Kecuali untuk tugas yang harus dilakukan secara manual, tugas tersebut diabaikan)`
             )
           );
         } else {
@@ -325,7 +325,7 @@ class TaskService {
           );
         } else {
           user.log.logError(
-            `Tugas tidak berjalan ${colors.blue(
+            `❌ Tugas tidak berjalan ${colors.blue(
               nameTaskParent + " --> " + task.title
             )} Kegagalan`
           );
