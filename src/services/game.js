@@ -139,9 +139,9 @@ class GameService {
       if (profile) playPasses = profile?.playPasses;
       const eligibleDogs = await this.eligibilityDogs(user);
       const textDropDogs =
-        (eligibleDogs ? "mungkin" : "Tidak bisa") + " dipilih DOGS 🦴";
+        (eligibleDogs ? "mungkin" : "Tidak") + " terpilih claim DOGS 🦴";
       user.log.log(
-        `Còn ${colors.blue(playPasses + " melihat")} bermain ${colors.magenta(
+        `Tersisa ${colors.blue(playPasses + " tiket")} permainan ${colors.magenta(
           `[${textDropDogs}]`
         )}`
       );
