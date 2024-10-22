@@ -33,7 +33,7 @@
 | --------------- | -------------------------------------------------------------------------------------------------------------------------- |
 | `npm run start` | Digunakan untuk bertani/mengklaim, melakukan misi, mengambil kehadiran, bermain game, mengklaim poin undangan,... singkatnya, apa yang dilakukan game adalah apa yang dilakukannya. |
 
-L> [!WARNING]
+L> ⚠️ [!WARNING]
 >
 > - Kalau error saat login, ngerjain tugas atau main game, itu karena server blum rusak, bukan error alatnya, biarkan saja nanti akan kembali berfungsi setelah errornya hilang.
 > - Karena server sering gagal dalam jangka waktu 14:00 - 24:00, kami menganjurkan Anda untuk menjalankan alat ini untuk pertama kalinya dalam jangka waktu 4:00 - 12:00 agar dapat berjalan dengan lancar.
