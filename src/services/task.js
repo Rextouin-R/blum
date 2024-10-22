@@ -62,7 +62,7 @@ class TaskService {
         colors.yellow(
           `Tugas selesai ${colors.blue(
             taskName
-          )} Belum ada tugas, silakan coba lagi nanti
+          )} Belum ada tugas, silakan coba lagi nanti`
         )
       );
       return;
