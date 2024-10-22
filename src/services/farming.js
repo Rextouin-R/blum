@@ -9,7 +9,7 @@ class FarmingClass {
       const { data } = await user.http.post(0, "farming/start", {});
       if (data) {
         user.log.log(
-          `Pertanian telah dimulai, menunggu klaim berikut: ${colors.blue("480 menit")}`
+          `Mulai bertani, menunggu klaim berikut: ${colors.blue("480 menit")}`
         );
         return true;
       } else {
@@ -28,7 +28,7 @@ class FarmingClass {
       const { data } = await user.http.post(0, "farming/claim", {});
       if (data) {
         user.log.log(
-          `Klaim keberhasilan pertanian, hadiah: ${colors.green(
+          `Berhasil klaim pertanian, hasil: ${colors.green(
             balance + user.currency
           )}`
         );
