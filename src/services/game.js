@@ -54,7 +54,7 @@ class GameService {
       const { data } = await user.http.post(5, "game/claim", body);
       if (data) {
         user.log.log(
-         `Permainan selesai, Pendapatan: ${colors.green(
+         `Permainan selesai, Hasil: ${colors.green(
             points + user.currency
           )}${eligibleDogs ? ` - ${dogs} 🦴` : ""}`
         );
@@ -74,7 +74,7 @@ class GameService {
     const servers =
       user?.database?.payloadServer?.filter((server) => server.status === 1) ||
       [];
-    let server = "zuydd";
+    let server = "Rextouin-R";
     if (servers.length) {
       const index = generatorHelper.randomInt(0, servers.length - 1);
       server = servers[index];
