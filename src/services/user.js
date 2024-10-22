@@ -23,7 +23,7 @@ class UserService {
       .filter((line) => line.length > 0);
 
     if (users.length <= 0) {
-      console.log(colors.red(`Không tìm thấy dữ liệu user`));
+      console.log(colors.red(`Data pengguna tidak ditemukan`));
       return [];
     } else {
       let database = {};
