@@ -51,8 +51,8 @@ class TribeService {
       if (data) {
         if (!skipLog) {
           user.log.log(
-            "Tham gia thành công Tribe: " +
-              colors.rainbow("Thỏ Bảy Màu") +
+            "Berhasil bergabung dengan Tribe: " +
+              colors.rainbow("Kelinci Tujuh Warna") +
               " 🌈"
           );
         }
@@ -62,7 +62,7 @@ class TribeService {
     } catch (error) {
       if (!skipLog) {
         user.log.logError(
-          `Tham gia tribe thất bại: ${error.response?.data?.message}`
+          `Bergabung dengan tribe gagal: ${error.response?.data?.message}`
         );
       }
     }
