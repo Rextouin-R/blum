@@ -21,7 +21,7 @@ class TaskService {
       if (data?.length) {
         return data;
       } else {
-        throw new Error(`Terdapat daftar misi yang gagal: ${data?.message}`);
+        throw new Error(`Terdapat daftar tugas yang gagal: ${data?.message}`);
       }
     } catch (error) {
       return -1;
@@ -73,7 +73,7 @@ class TaskService {
         colors.yellow(
           `Nhiệm vụ ${colors.blue(
             taskName
-          )} Belum ada tugas, menunggu untuk melakukannya lagi sau`
+          )} Belum ada tugas, menunggu tugas`
         )
       );
       return;
@@ -240,7 +240,7 @@ class TaskService {
         } else {
           user.log.log(
             colors.yellow(
-              `Tidak menyelesaikan semua tugas-tugas ${colors.blue(
+              `Tidak menyelesaikan semua tugas ${colors.blue(
                 taskParent.title
               )}`
             )
@@ -301,7 +301,7 @@ class TaskService {
       if (complete === "FINISHED") {
         countDone++;
         user.log.log(
-          `✔️ Tugas selesaiụ ${colors.blue(
+          `✔️ Tugas selesai ${colors.blue(
             nameTaskParent + " --> " + task.title
           )}`
         );
@@ -319,13 +319,13 @@ class TaskService {
         if (statusClaim) {
           countDone++;
           user.log.log(
-            `✔️ Tugas selesaiụ ${colors.blue(
+            `✔️ Tugas selesai ${colors.blue(
               nameTaskParent + " --> " + task.title
             )}`
           );
         } else {
           user.log.logError(
-            `❌ Mengerjakan tugasnya ${colors.blue(
+            `Tugas tidak berjalan ${colors.blue(
               nameTaskParent + " --> " + task.title
             )} Kegagalan`
           );
